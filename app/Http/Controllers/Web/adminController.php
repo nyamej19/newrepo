@@ -12,7 +12,7 @@ use App\Models\User;
 use App\Models\userassesment;
 use App\Models\workerassesment;
 
-class AdminController extends Controller
+class AdminController
 {
     public function addServicePage()
     {
