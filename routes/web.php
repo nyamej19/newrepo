@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\web\AdminController;
+use App\Http\Controllers\Web\AdminController;
 use App\Http\Controllers\Web\ChalyController;
 use App\Http\Controllers\Web\ServiceController;
 use App\Http\Controllers\Web\UserController;
