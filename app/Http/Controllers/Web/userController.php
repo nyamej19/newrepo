@@ -13,7 +13,7 @@ use PhpParser\Node\Expr\FuncCall;
 use App\Models\usertimeservice;
 use App\Models\workertimeservice;
 
-class UserController extends Controller
+class userController extends Controller
 {
     public function myServicesRequest(){
         $User  = Auth::user();
