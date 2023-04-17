@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\web\adminController;
+use App\Http\Controllers\web\AdminController;
 use App\Http\Controllers\Web\ChalyController;
-use App\Http\Controllers\web\serviceController;
-use App\Http\Controllers\web\userController;
+use App\Http\Controllers\Web\ServiceController;
+use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Rules\Role;
