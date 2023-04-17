@@ -10,54 +10,57 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class serviceController extends Controller
+class ServiceController extends Controller
 {
-    public function signupService(Request $request ,$user_id,$service_id){
+    public function signupService(Request $request, $user_id, $service_id)
+    {
         $service_id = $request->service_id;
-    $user = User::find($user_id);
-    $servicePerson  = User::find($user->id);
-    $service = addservice::find($service_id);
-    $servicePerson->service()->create(['Name'=>$service->Name ,'Desc'=>$service->Desc, 'service_charge'=>$service->service_charge]);
+        $user = User::find($user_id);
+        $servicePerson  = User::find($user->id);
+        $service = addservice::find($service_id);
+        $servicePerson->service()->create(['Name' => $service->Name, 'Desc' => $service->Desc, 'service_charge' => $service->service_charge]);
 
         return redirect()->route('my-services');
     }
-    public function myworkerassesment($id){
-        $myassesments =DB::table('userassesments')->where('worker_id',$id)->get();
+    public function myworkerassesment($id)
+    {
+        $myassesments = DB::table('userassesments')->where('worker_id', $id)->get();
         //dd($myassesment);
-        return view('serviceview.myassesments',compact('myassesments'));
+        return view('serviceview.myassesments', compact('myassesments'));
     }
-    public function workerAssesment($user_id){
+    public function workerAssesment($user_id)
+    {
         $userId = $user_id;
-        return view('serviceview.assesment' ,compact('userId'));
-
+        return view('serviceview.assesment', compact('userId'));
     }
-    public function myServicesRequest(){
+    public function myServicesRequest()
+    {
         $user = Auth::user();
-       $myreqs =  $user->serviceRequest;
-       //dd($myreqs);
-       return view('serviceview.myservice',compact('myreqs'));
+        $myreqs =  $user->serviceRequest;
+        //dd($myreqs);
+        return view('serviceview.myservice', compact('myreqs'));
     }
-    public function reqServicePerson($service_id ){
+    public function reqServicePerson($service_id)
+    {
 
         $service = addservice::find($service_id);
 
-        $workers_id = DB::table('services')->where('Name' ,$service->Name)->pluck('user_id');
+        $workers_id = DB::table('services')->where('Name', $service->Name)->pluck('user_id');
         $serviceworkers = [];
-        foreach($workers_id as  $worker_id){
+        foreach ($workers_id as  $worker_id) {
             $worker = User::find($worker_id);
-            array_push($serviceworkers ,$worker);
+            array_push($serviceworkers, $worker);
         }
-        return view('chalyview.reqservicepersonnel',compact('service' ,'serviceworkers'));
+        return view('chalyview.reqservicepersonnel', compact('service', 'serviceworkers'));
     }
-    public function reqServicePage($service_id,$serviceperson_id){
+    public function reqServicePage($service_id, $serviceperson_id)
+    {
         $serviceperson = User::find($serviceperson_id);
         $service = addservice::find($service_id);
         //dd($serviceperson->id);
-        return view('chalyview.reqService',compact('service','serviceperson'));
-
-
+        return view('chalyview.reqService', compact('service', 'serviceperson'));
     }
-    public function reqServiceForm(Request $request, $service_id,$serviceperson_id)
+    public function reqServiceForm(Request $request, $service_id, $serviceperson_id)
     {
         $User  = Auth::user();
 
@@ -70,7 +73,7 @@ class serviceController extends Controller
         $service  = DB::table('services')->where('user_id', $serviceperson->id)->pluck('Name');
         $servicename = preg_replace('/[^A-Za-z0-9\-]/', '', $service);
 
-       $serviceperson->serviceRequest()->create([
+        $serviceperson->serviceRequest()->create([
             'service_id' => $serviceperson->name,
             'time_of_service' => $time_of_service,
             'chargeperhour' => $chargeperhour,
@@ -78,26 +81,29 @@ class serviceController extends Controller
             'email' => $User->email,
             'statement' => $statement,
             'userrequestId' => $User->id,
-            'user_name'=>$User->name,
+            'user_name' => $User->name,
             'phone' => $phone
         ]);
         //dd($a);
 
         return redirect()->route('my-services-request');
     }
-    public function usersAllServices(){
+    public function usersAllServices()
+    {
         $services = addservice::all();
-        return view('chalyview.allservices',compact('services'));
+        return view('chalyview.allservices', compact('services'));
     }
-    public function allServices(){
+    public function allServices()
+    {
         $user =    Auth::user();
         $services = addservice::all();
-        return view('serviceview.allservices' ,compact('services' ,'user'));
+        return view('serviceview.allservices', compact('services', 'user'));
     }
-    public function myServices(){
+    public function myServices()
+    {
         $user = Auth::user();
-         $myreqs = $user->serviceRequest;
-         return view('serviceview.myservice' ,compact('myreqs'));
+        $myreqs = $user->serviceRequest;
+        return view('serviceview.myservice', compact('myreqs'));
     }
     public function startServiceWorker(Request $request, $user_id)
     {
@@ -110,7 +116,7 @@ class serviceController extends Controller
     public function startServiceWorkerPost(Request $request, $user_id)
     {
         $timespent = $request->timespent;
-      //  dd($timespent);
+        //  dd($timespent);
         $worker = Auth::user();
         $workerInfo = User::find($worker->id);
         // $user = User::find($user_id);
@@ -128,7 +134,7 @@ class serviceController extends Controller
         DB::table('servicerequests')->where('user_id', $worker->id)->where('userrequestId', $user_id)->update([
             'service_state' => 'completed',
         ]);
-        return redirect()->to('worker-assesment/'.$user_id);
+        return redirect()->to('worker-assesment/' . $user_id);
 
         // return view('userview.timer', compact('servicename', 'serviceperson'));
     }
@@ -139,12 +145,9 @@ class serviceController extends Controller
         $workerInfo = User::find($worker->id);
         $assesment = $req->assesment;
         $workerInfo->workerassesment()->create(['assesment' => $assesment, 'solicitant_id' => $user_id]);
-        DB::table('servicerequests')->where('user_id',$worker->id)->where('userrequestId',$user_id)->update([
+        DB::table('servicerequests')->where('user_id', $worker->id)->where('userrequestId', $user_id)->update([
             'service_state' => 'completed',
         ]);
         return redirect()->to('service-page');
     }
-
-
-
 }

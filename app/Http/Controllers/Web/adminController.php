@@ -12,41 +12,45 @@ use App\Models\User;
 use App\Models\userassesment;
 use App\Models\workerassesment;
 
-class adminController extends Controller
+class AdminController extends Controller
 {
-    public function addServicePage(){
+    public function addServicePage()
+    {
         return view('adminview.addservice');
     }
     public function addService(Request $request)
     {
         $servicename = $request->name;
         $serviceDescritption = $request->description;
-        $servicecharge =$request->servicecharge;
-        addservice::create(['Name'=>$servicename ,'Desc'=>$serviceDescritption , 'service_charge'=>$servicecharge]);
+        $servicecharge = $request->servicecharge;
+        addservice::create(['Name' => $servicename, 'Desc' => $serviceDescritption, 'service_charge' => $servicecharge]);
         return redirect()->route('admin-services');
-
     }
-    public function workerAssesment(){
+    public function workerAssesment()
+    {
         $workerAssesments = workerassesment::all();
-        return view('adminview.workerassesment',compact('workerAssesments'));
+        return view('adminview.workerassesment', compact('workerAssesments'));
     }
     public function userAssesment()
     {
         $userAssesments = userassesment::all();
         return view('adminview.userassesment', compact('userAssesments'));
     }
-    public function allAssesments(){
-        $workerAssesments = workerassesment::all() ;
+    public function allAssesments()
+    {
+        $workerAssesments = workerassesment::all();
         $userAssesments = userassesment::all();
-        return view('adminview.assesment',compact('workerAssesments' , 'userAssesments'));
+        return view('adminview.assesment', compact('workerAssesments', 'userAssesments'));
     }
-    public function adminServices(){
-      $allservices =   addservice::all();
-        return view('adminview.adminservice' ,compact('allservices'));
+    public function adminServices()
+    {
+        $allservices =   addservice::all();
+        return view('adminview.adminservice', compact('allservices'));
     }
 
-    public function addHome(Request $request){
-       // dd($request->all());
+    public function addHome(Request $request)
+    {
+        // dd($request->all());
         $price = $request->price;
         $homevid = $request->homevid;
         $location = $request->location;
@@ -54,62 +58,62 @@ class adminController extends Controller
         $homeType = $request->homeType;
         $summary = $request->summDesc;
         $saleType = $request->saleType;
-        if($file = $request->file('homeImg')){
+        if ($file = $request->file('homeImg')) {
 
-                $filename = 'img'.time().'.'.$file->getClientOriginalExtension();
-                $imgPath = public_path('app/public/');
-                $img_url =$filename;
-                $file->move($imgPath ,$filename);
-                $homeImg=$img_url;
-
+            $filename = 'img' . time() . '.' . $file->getClientOriginalExtension();
+            $imgPath = public_path('app/public/');
+            $img_url = $filename;
+            $file->move($imgPath, $filename);
+            $homeImg = $img_url;
         }
-    //  if($vid  = $request->file('homeVid')){
+        //  if($vid  = $request->file('homeVid')){
 
-    //         $vidname = time().$vid->getClientOriginalName();
-    //        // dd($vidname);
-    //         $Vidpath = public_path('app/public/');
-    //         $vid_url = $vidname;
-    //         $vid->move($Vidpath, $vidname);
-    //         $homeVid =$vid_url;
+        //         $vidname = time().$vid->getClientOriginalName();
+        //        // dd($vidname);
+        //         $Vidpath = public_path('app/public/');
+        //         $vid_url = $vidname;
+        //         $vid->move($Vidpath, $vidname);
+        //         $homeVid =$vid_url;
 
 
-    // }
-    Homes::create([
-        'price'=>$price ,
-        'homeImg' => $homeImg,
-        'homeVid'=>$homevid,
-        'location'=>$location,
-        'detailDesc'=>$details ,
-        'homeType'=>$homeType ,
-        'summDesc' =>$summary,
-        'saleType' =>$saleType,
-        'availability'=>'yes'
-    ]);
+        // }
+        Homes::create([
+            'price' => $price,
+            'homeImg' => $homeImg,
+            'homeVid' => $homevid,
+            'location' => $location,
+            'detailDesc' => $details,
+            'homeType' => $homeType,
+            'summDesc' => $summary,
+            'saleType' => $saleType,
+            'availability' => 'yes'
+        ]);
 
-    return redirect()->route('admin-homes');
-
-    }
-    public function adminHomes(){
-        $homes =   Homes::all();
-          return view('adminview.adminhomes' ,compact('homes'));
-      }
-      public function addHomePage(){
-
-          return view('adminview.addhome');
-      }
-      public function removeHome($id){
-        $home =Homes::destroy($id);
         return redirect()->route('admin-homes');
+    }
+    public function adminHomes()
+    {
+        $homes =   Homes::all();
+        return view('adminview.adminhomes', compact('homes'));
+    }
+    public function addHomePage()
+    {
 
-
-      }
-      public function editHomePage($id){
-        $home =Homes::find($id);
-        return view('adminview.edithome',compact('home'));
-      }
+        return view('adminview.addhome');
+    }
+    public function removeHome($id)
+    {
+        $home = Homes::destroy($id);
+        return redirect()->route('admin-homes');
+    }
+    public function editHomePage($id)
+    {
+        $home = Homes::find($id);
+        return view('adminview.edithome', compact('home'));
+    }
     public function buyHomePage($id)
     {
-         $home = Homes::find($id);
+        $home = Homes::find($id);
         return view('chalyview.buyhomepage', compact('home'));
     }
     public function rentHomePage($id)
@@ -144,8 +148,6 @@ class adminController extends Controller
             'homeId' => $homeId
         ]);
         return redirect()->to('admin-page');
-
-
     }
     public function rentHome(Request $request, $home_id)
     {
@@ -175,11 +177,12 @@ class adminController extends Controller
         return redirect()->to('admin-page');
     }
 
-      public function editHome(Request $request ,$home_id){
+    public function editHome(Request $request, $home_id)
+    {
         //dd($request->all());
         $home = Homes::find($home_id);
         $price = $request->price;
-        $homevid =$request->homelink;
+        $homevid = $request->homelink;
         $location = $request->location;
         $details = $request->detailDesc;
         $homeType = $request->homeType;
@@ -189,51 +192,48 @@ class adminController extends Controller
 
 
 
-        if($file = $request->file('homeImg')){
+        if ($file = $request->file('homeImg')) {
 
-            $filename = 'img'.time().'.'.$file->getClientOriginalExtension();
+            $filename = 'img' . time() . '.' . $file->getClientOriginalExtension();
             $imgPath = public_path('app/public/');
-            $img_url =$filename;
-            $file->move($imgPath ,$filename);
-            $homeImg=$img_url;
+            $img_url = $filename;
+            $file->move($imgPath, $filename);
+            $homeImg = $img_url;
+        }
+        //  if($vid  = $request->file('homeVid')){
 
+        //         $vidname = time().$vid->getClientOriginalName();
+
+        //         $Vidpath = public_path('app/public/');
+        //         $vid_url = $vidname;
+        //         $vid->move($Vidpath, $vidname);
+        //         $homeVid =$vid_url;
+
+
+        // }
+        //saving data
+        $home->update([
+            'price' => $price,
+            'homeImg' => $homeImg,
+            'homeVid' => $homevid,
+            'location' => $location,
+            'detailDesc' => $details,
+            'homeType' => $homeType,
+            'summDesc' => $summary,
+            'saleType' => $saleType,
+            'availability' => $availability
+        ]);
+        return redirect()->route('admin-homes');
     }
-//  if($vid  = $request->file('homeVid')){
 
-//         $vidname = time().$vid->getClientOriginalName();
-
-//         $Vidpath = public_path('app/public/');
-//         $vid_url = $vidname;
-//         $vid->move($Vidpath, $vidname);
-//         $homeVid =$vid_url;
-
-
-// }
-       //saving data
-    $home->update([
-        'price'=>$price ,
-        'homeImg' => $homeImg,
-        'homeVid'=> $homevid,
-        'location'=>$location,
-        'detailDesc'=>$details ,
-        'homeType'=>$homeType ,
-        'summDesc' =>$summary,
-        'saleType' =>$saleType,
-        'availability'=>$availability
-    ]);
-    return redirect()->route('admin-homes');
-}
-
-public function removeService($id){
-    $service =addservice::destroy($id);
-    return redirect()->route('admin-services');
-
-
-  }
-  public function allMessages(){
-    $allMessages = contactus::all();
-    return view('adminview.allcontacts' ,compact('allMessages'));
-  }
-
-
+    public function removeService($id)
+    {
+        $service = addservice::destroy($id);
+        return redirect()->route('admin-services');
+    }
+    public function allMessages()
+    {
+        $allMessages = contactus::all();
+        return view('adminview.allcontacts', compact('allMessages'));
+    }
 }
