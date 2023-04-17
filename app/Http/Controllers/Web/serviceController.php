@@ -10,7 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class serviceController extends Controller
+class ServiceController extends Controller
 {
     public function signupService(Request $request ,$user_id,$service_id){
         $service_id = $request->service_id;
