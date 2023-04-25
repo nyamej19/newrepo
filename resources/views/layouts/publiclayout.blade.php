@@ -260,7 +260,7 @@
 
 </html>
 
-              </li> -->
+              </li> 
                             <li><a href="{{route('signup-service')}}">Service Worker</a></li>
                             <li><a href="{{route('signup-user')}}">Property Owner</a></li>
                             <!-- <li><a href="#">Drop Down 4</a></li> -->
