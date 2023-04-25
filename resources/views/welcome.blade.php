@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
                     <div class="icon-box icon-box-pink">
-                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                        <div class="icon"><img src="./asset/img/rent.png" style="width: 50px; height:50px;"></div>
                         <h4 class="title"><a href="{{route('home-rentals')}}">Home Rentals</a></h4>
                         <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
                     </div>
@@ -60,7 +60,7 @@
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon-box icon-box-cyan">
-                        <div class="icon"><i class="bx bx-file"></i></div>
+                        <div class="icon"><img src="./asset/img/house-for-sale.png" style="width: 50px; height:50px;"></div>
                         <h4 class="title"><a href="{{route('home-sales')}}">Homes For Sale</a></h4>
                         <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
                     </div>
@@ -68,7 +68,7 @@
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box icon-box-green">
-                        <div class="icon"><i class="bx bx-tachometer"></i></div>
+                        <div class="icon"><img src="./asset/img/repair-tools.png" style="width: 50px; height:50px;"></div>
                         <h4 class="title"><a href="{{route('services')}}">Services</a></h4>
                         <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     </div>
@@ -76,7 +76,7 @@
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box icon-box-blue">
-                        <div class="icon"><i class="bx bx-world"></i></div>
+                        <div class="icon"><img src="./asset/img/agreement.png" style="width: 50px; height:50px;"></div>
                         <h4 class="title"><a href="{{route('partners')}}">Partners</a></h4>
                         <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
                     </div>
@@ -167,7 +167,7 @@
 
             @endforeach
 
-            <div class="row" data-aos="fade-up">
+            <!-- <div class="row" data-aos="fade-up">
                 <div class="col-md-5 order-1 order-md-2">
                     <img src="{{asset('asset/img/features-2.svg')}}" class="img-fluid" alt="">
                 </div>
@@ -183,11 +183,11 @@
                         culpa qui officia deserunt mollit anim id est laborum
                     </p>
                 </div>
-            </div>
+            </div> -->
 
 
 
-            <div class="row" data-aos="fade-up">
+            <!-- <div class="row" data-aos="fade-up">
                 <div class="col-md-5 order-1 order-md-2">
                     <img src="assets/img/features-4.svg" class="img-fluid" alt="">
                 </div>
@@ -203,7 +203,7 @@
                         culpa qui officia deserunt mollit anim id est laborum
                     </p>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </section><!-- End Features Section -->
