@@ -22,6 +22,10 @@ class ChalyController extends Controller
     public function partners(){
         return view('chalyview.partners');
     }
+    public function blog()
+    {
+        return view('chalyview.blog');
+    }
     public function homeSales(){
         $homes = DB::table("homes")->where('saleType' ,'sale')->get();
         return view('chalyview.salehomes',compact('homes'));
