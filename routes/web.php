@@ -78,7 +78,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/worker-assesment/{user_id}', [ServiceController::class, 'workerAssesment'])->name('worker-assesment');
     Route::post('/worker-assesment/{user_id}', [ServiceController::class, 'workerAssesmentPost'])->name('worker-assesment-post');
 });
-
+Route::get('/blog', [ChalyController::class, 'blog'])->name('blog');
 Route::get('/top-lisitings', [ChalyController::class, 'topListings'])->name('top=listings');
 Route::get('/req-service-person/{service_id}', [ServiceController::class, 'reqServicePerson'])->name('req-service-person');
 Route::get('/req-service-page/{service_id}/{serviceperson_id}' , [ServiceController::class, 'reqServicePage'])->name('req-service-page');
