@@ -82,6 +82,8 @@ Route::get('/blog', [ChalyController::class, 'blog'])->name('blog');
 Route::get('/top-lisitings', [ChalyController::class, 'topListings'])->name('top=listings');
 Route::get('/req-service-person/{service_id}', [ServiceController::class, 'reqServicePerson'])->name('req-service-person');
 Route::get('/req-service-page/{service_id}/{serviceperson_id}' , [ServiceController::class, 'reqServicePage'])->name('req-service-page');
+Route::get('/workerinfo/{id}' , [ChalyController::class, 'workerInfo'])->name('worker-info');
+Route::get('/contact-review/{id}', [ChalyController::class, 'contactReviewer'])->name('contact-reviewer');
 
 Route::get('/users-all-services',[ServiceController::class, 'usersAllServices'])->name('user-services');
 Route::post('/contact-post',[ChalyController::class, 'contactPost'])->name('contact-post');

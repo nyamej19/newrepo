@@ -19,6 +19,15 @@ class ChalyController extends Controller
     public function aboutUs(){
         return view('chalyview.aboutus');
     }
+    public function workerInfo($id){
+        $workerInfos = DB::table('userassesments')->where('worker_id',$id)->get();
+        return view('chalyview.workerinfo',compact('workerInfos'));
+
+    }
+    public function contactReviewer($id){
+        $userInfo = User::find($id);
+        return view('chalyview.contactreview',compact('userInfo'));
+    }
     public function partners(){
         return view('chalyview.partners');
     }

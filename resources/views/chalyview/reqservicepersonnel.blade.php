@@ -23,7 +23,7 @@
 
                     <p class="description">Contact: {{$worker->phone}}</p>
                     <p class="description">Email: {{$worker->email}}</p>
-                    <p> <a href="">View more about worker</a></p>
+                    <p> <a href="{{route('worker-info' ,$worker->id)}}">View more about worker</a></p>
                     <a href="{{route('req-service-page' ,[$service->id,$worker->id])}}">
 
                         <button class="btn btn-primary" style="margin-top: 10px;">Request Service</button>
