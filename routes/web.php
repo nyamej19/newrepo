@@ -85,7 +85,6 @@ Route::get('/req-service-page/{service_id}/{serviceperson_id}' , [ServiceControl
 
 Route::get('/users-all-services',[ServiceController::class, 'usersAllServices'])->name('user-services');
 Route::post('/contact-post',[ChalyController::class, 'contactPost'])->name('contact-post');
-// Route::post('register', [ChalyController::class, 'store']) ->name('register-user');
 Route::get('/home-rentals' ,[ChalyController::class, 'homeRentals'])->name('home-rentals');
 Route::get('/home-sales' ,[ChalyController::class, 'homeSales'])->name('home-sales');
 Route::get('/services' ,[ChalyController::class, 'allServices'])->name('services');

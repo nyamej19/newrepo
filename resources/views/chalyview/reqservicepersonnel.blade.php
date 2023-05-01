@@ -17,19 +17,31 @@
             @foreach($serviceworkers as $worker)
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-box icon-box-cyan">
-                    <div class="icon"><i class="bx bx-file"></i></div>
-                    <h4 class="title"><a href="#">{{$worker->name}}</a></h4>
-                    <p class="description"> {{$worker->phone}}</p>
-                    <p class="description"> {{$worker->email}}</p>
+
+                    <div class="icon"><img src="{{ asset('/app/public/'.$worker->image) }}" style="width: 50px; height:50px"></div>
+                    <p class="description"><a href="#">Name :{{$worker->name}} </a></p>
+
+                    <p class="description">Contact: {{$worker->phone}}</p>
+                    <p class="description">Email: {{$worker->email}}</p>
+                    <p> <a href="">View more about worker</a></p>
                     <a href="{{route('req-service-page' ,[$service->id,$worker->id])}}">
+
                         <button class="btn btn-primary" style="margin-top: 10px;">Request Service</button>
                     </a>
                 </div>
             </div>
             @endforeach
 
+            @if($serviceworkers == null)
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
 
+
+                <button class="btn btn-success">No Request Yet </button>
+
+            </div>
         </div>
+        @endif
+    </div>
 
     </div>
 </section>

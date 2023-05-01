@@ -47,6 +47,7 @@ class ServiceController extends Controller
         $service = addservice::find($service_id);
 
         $workers_id = DB::table('services')->where('Name', $service->Name)->pluck('user_id');
+       // dd($workers_id);
         $serviceworkers = [];
         foreach ($workers_id as  $worker_id) {
             $worker = User::find($worker_id);

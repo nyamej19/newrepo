@@ -24,22 +24,31 @@ class UserController extends Controller
         // $myservicenames =   DB::table('servicerequests')->where('userrequestId', $User->id)->pluck('service_id');
 
         $myrequests =   DB::table('servicerequests')->where('userrequestId', $User->id)->get();
+        $completedservices =DB::table('servicerequests')->where('userrequestId', $User->id)->where('service_state' ,"completed")->get();
+        $awaitingservices= DB::table('servicerequests')->where('userrequestId', $User->id)->where('service_state', "awaiting")->get();
         $serviceInfos = [];
+        $completedserviceInfos = [];
+        $awaitedserviceInfos =[];
         $services = [];
         foreach ($myrequests as $myrequest) {
             $servicename = $myrequest->service_id;
             array_push($services, $servicename);
         }
 
+        foreach ($completedservices as $myrequest) {
+            $servicename =User::find($myrequest->user_id);
+            array_push($completedserviceInfos, $servicename);
+        }
+
+        foreach ($awaitingservices as $myrequest) {
+            $servicename = User::find($myrequest->user_id);
+            array_push($awaitedserviceInfos, $servicename);
+        }
         foreach ($myservicepersonrequests as $myrequest) {
             $serviceInfo = User::find($myrequest);
             array_push($serviceInfos, $serviceInfo);
         }
-        //dd($serviceInfos);
-        //$data = [];
-        //  $finalresults =  array_merge($serviceInfos, $services);
-        //dd($a);
-        return view('userview.myservice', compact('serviceInfos'));
+        return view('userview.myservice', compact('serviceInfos', 'awaitedserviceInfos', 'completedserviceInfos'));
     }
     public function userAssesment($worker_id)
     {
@@ -109,7 +118,8 @@ class UserController extends Controller
     public function startServicePost(Request $request, $serviceperson_id)
     {
         $timespent = $request->timespent;
-
+        // $User = Auth::id();
+        // $Userinfo = User::find($User);
         $serviceperson = User::find($serviceperson_id);
         $charges =  $serviceperson->service;
         $chargearray = [];
@@ -126,6 +136,8 @@ class UserController extends Controller
         DB::table('servicerequests')->where('user_id', $serviceperson_id)->where('userrequestId', $user->id)->update([
             'service_state' => 'completed',
         ]);
+        //find user and send service ended too//
+        //$myrequests =   DB::table('servicerequests')->where('userrequestId', $Userinfo->id)->get();
         return redirect()->to('user-assesment/' . $serviceperson_id);
 
         // return view('userview.timer', compact('servicename', 'serviceperson'));

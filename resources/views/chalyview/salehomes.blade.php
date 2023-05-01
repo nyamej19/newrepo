@@ -43,4 +43,13 @@
 
     </div>
     @endforeach
+    @if($homes == null)
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+
+
+        <button class="btn btn-success">No Homes Available </button>
+
+    </div>
+    </div>
+    @endif
 </section>

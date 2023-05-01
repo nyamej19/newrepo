@@ -27,8 +27,16 @@
             </div>
             @endforeach
 
+            @if($services == null)
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
 
+
+                <button class="btn btn-success">No Services </button>
+
+            </div>
         </div>
+        @endif
+    </div>
 
     </div>
 </section>
