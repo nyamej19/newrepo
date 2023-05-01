@@ -54,12 +54,12 @@
                     <li><a class="active " href="{{'/admin-page'}}">Home</a></li>
                     <li><a href="{{route('about-us')}}">About</a></li>
                     <!-- <li><a href="#">Services</a></li> -->
-                    <li><a href="portfolio.html">Assesment</a></li>
+                    <!-- <li><a href="portfolio.html">Assesment</a></li> -->
                     <li><a href="{{route('all-contact-msg')}}">Contact Reports</a></li>
                     <li><a href="#">Hi {{Auth::user()->name}}</a></li>
 
-                    <li class="dropdown"><a href="#"><span>Sign Up</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
+                    <!-- <li class="dropdown"><a href="#"><span>Sign Up</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul> -->
                             <!-- <li><a href="#">Drop Down 1</a></li> -->
                             <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
@@ -70,11 +70,11 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li> -->
-                            <li><a href="{{route('signup-service')}}">Service Worker</a></li>
-                            <li><a href="{{route('signup-user')}}">Property Owner</a></li>
+                            <!-- <li><a href="{{route('signup-service')}}">Service Worker</a></li>
+                            <li><a href="{{route('signup-user')}}">Property Owner</a></li> -->
                             <!-- <li><a href="#">Drop Down 4</a></li> -->
-                        </ul>
-                    </li>
+                        <!-- </ul>
+                    </li> -->
                     <li><a href="{{route('contact-us')}}">Contact Us</a></li>
                     <form action="{{route('sign-out')}}" method="post">
                         {{ csrf_field() }}

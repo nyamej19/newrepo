@@ -22,7 +22,7 @@
                 <p class="title"><strong>Availability: {{$home->availability}}</strong></p>
                 <p class="title"><strong>HomeType :{{$home->homeType}}</strong></p>
                 <p class="title"><strong>SaleType :{{$home->saleType}}</strong></p>
-                <a href="#">
+                <a href=" {{$home->homeVid}}">
                     <button class="btn btn-primary outline" style="width:250px">Link To A video of the building</button>
                 </a>
                 <div style="display:flex;margin-top:15px">
