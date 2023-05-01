@@ -9,7 +9,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Contact</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="">Home</a></li>
             <li>Contact</li>
           </ol>
         </div>
@@ -30,21 +30,21 @@
                 <div class="info-box">
                   <i class="bx bx-map"></i>
                   <h3>Our Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>KNUST, Kumasi, AK 103848</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box">
                   <i class="bx bx-envelope"></i>
                   <h3>Email Us</h3>
-                  <p>info@example.com<br>contact@example.com</p>
+                  <p>info@estate.com<br>contact@estate.com</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box">
                   <i class="bx bx-phone-call"></i>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                  <p>+233 501 459 677<br>+233 552 213 949</p>
                 </div>
               </div>
             </div>
