@@ -166,8 +166,17 @@
             </div>
 
             @endforeach
+            @if($topListings == null)
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
 
-            <!-- <div class="row" data-aos="fade-up">
+
+                <button class="btn btn-success">No Listings Yet </button>
+
+            </div>
+        </div>
+        @endif
+
+        <!-- <div class="row" data-aos="fade-up">
                 <div class="col-md-5 order-1 order-md-2">
                     <img src="{{asset('asset/img/features-2.svg')}}" class="img-fluid" alt="">
                 </div>
@@ -187,7 +196,7 @@
 
 
 
-            <!-- <div class="row" data-aos="fade-up">
+        <!-- <div class="row" data-aos="fade-up">
                 <div class="col-md-5 order-1 order-md-2">
                     <img src="assets/img/features-4.svg" class="img-fluid" alt="">
                 </div>
