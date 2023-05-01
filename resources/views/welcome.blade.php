@@ -154,7 +154,7 @@
                             <a href="{{route('contact-us')}}">
                                 <button class="btn btn-primary" style="margin-right:10px;padding:8px">Enquire</button>
                             </a>
-                            <a href="{{route('wishlist',$home->id)}}">
+                            <a href="{{route('my-wishlist')}}">
                                 <button style="margin-right:10px;padding:8px;" class="btn btn-primary" type="submit">Add To Wish List</button>
                             </a>
                         </div>
