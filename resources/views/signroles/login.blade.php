@@ -31,9 +31,9 @@
                                             <input type="password" id="form3Example4c" name="password" class="form-control" required />
                                             <label class="form-label" for="form3Example4c">Password</label>
                                         </div>
+
                                     </div>
-
-
+                                    <small><a href="#">Forgot Password ?</a></small>
 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                         <button type="submit" class="btn btn-primary btn-lg">Login</button>

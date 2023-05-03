@@ -5,11 +5,21 @@
 <section class="services">
 
     <div class="d-flex justify-content-between align-items-center">
-        <h2 style="margin-left: 30%; margin-top:20px; margin-bottom:20px;">All Services</h2>
-        1
-    </div>
+
+        <h2 style="margin-left: 40%; margin-top:5%;margin-bottom:20px; text-decoration:underline">All Services</h2>
 
     </div>
+    <form action="{{ route('search') }}" method="GET">
+
+        <div class="" style=" margin-bottom: 8px; display:flex;">
+
+            <input type="text" style="width: 75%;margin-left: 10%;border-radius:10px;height:40px" placeholder="Search service..." name="service">
+            <button class="btn btn-primary" type="submit" style="margin-left: 5px;">Search</button>
+
+        </div>
+
+    </form>
+
     <div class="container">
 
         <div class="row">
@@ -36,6 +46,8 @@
             </div>
         </div>
         @endif
+       
+
     </div>
 
     </div>

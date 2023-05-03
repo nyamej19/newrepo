@@ -16,9 +16,14 @@ class ServiceController extends Controller
     {
         $service_id = $request->service_id;
         $user = User::find($user_id);
-        $a = "kl";
         $servicePerson  = User::find($user->id);
         $service = addservice::find($service_id);
+       $registeredalready = DB::table('services')->where('user_id',$servicePerson->id)->get()->first();
+        if($registeredalready != null)
+        {
+            return redirect()->back()->with('success', 'You are signed up for a service Already!');
+        }
+
         $servicePerson->service()->create(['Name' => $service->Name, 'Desc' => $service->Desc, 'service_charge' => $service->service_charge]);
 
         return redirect()->route('my-services');

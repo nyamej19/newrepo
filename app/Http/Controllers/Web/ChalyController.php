@@ -144,6 +144,19 @@ class ChalyController extends Controller
 
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->service;
+
+        $services = DB::table('services')
+        ->where('Name', 'LIKE', '%' . $query . '%')
+            ->get();
+
+   // $resultId =$results->Name;
+
+        return view('chalyview.serviceSearch',compact('services'));
+    }
+
 
     public function allHomes()
     {

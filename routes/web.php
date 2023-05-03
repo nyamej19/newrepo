@@ -79,6 +79,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/worker-assesment/{user_id}', [ServiceController::class, 'workerAssesmentPost'])->name('worker-assesment-post');
 });
 Route::get('/blog', [ChalyController::class, 'blog'])->name('blog');
+Route::get('/search-service', [ChalyController::class, 'search'])->name('search');
 Route::get('/top-lisitings', [ChalyController::class, 'topListings'])->name('top=listings');
 Route::get('/req-service-person/{service_id}', [ServiceController::class, 'reqServicePerson'])->name('req-service-person');
 Route::get('/req-service-page/{service_id}/{serviceperson_id}' , [ServiceController::class, 'reqServicePage'])->name('req-service-page');
@@ -98,6 +99,7 @@ Route::get('/signup-admin',[ChalyController::class, 'signUpAdmin'])->name('signu
 Route::post('signup-form',[ChalyController::class, 'signUpForm'])->name('signup-form');
 Route::get('contact-us',[ChalyController::class, 'contactUs'])->name('contact-us');
 Route::get('all-homes', [ChalyController::class, 'allHomes'])->name('all-homes');
+
 
 
 
