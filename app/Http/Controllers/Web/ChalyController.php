@@ -148,11 +148,11 @@ class ChalyController extends Controller
     {
         $query = $request->service;
 
-        $services = DB::table('services')
+        $service = DB::table('addservices')
         ->where('Name', 'LIKE', '%' . $query . '%')
             ->get();
 
-   // $resultId =$results->Name;
+   $services = $service->unique('user_id');
 
         return view('chalyview.serviceSearch',compact('services'));
     }
