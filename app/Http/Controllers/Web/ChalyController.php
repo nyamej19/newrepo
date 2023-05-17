@@ -88,18 +88,54 @@ class ChalyController extends Controller
             }
             //   return $img;
 
-              $user = User::create([
+            if($request->role == 0){
+
+            $user = User::create([
                 'name' => $request->name,
-                'email'=>$request->email,
-                'password'=> Hash::make($request->password),
-                'phone'=>$request->phone,
-                'role'=>$request->role,
-                'phone'=>$request->phone,
-                'agree'=>$request->agree,
-                'image'=>$filename,
-                'profile_photo_path'=>$imgPath
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone' => $request->phone,
+                'role' => $request->role,
+                'phone' => $request->phone,
+                'country'=>'admin',
+                'state'=>'admin',
+                'agree' => $request->agree,
+                'image' => $filename,
+                'profile_photo_path' => $imgPath
 
             ]);
+            }
+            else if($request->role == 1)
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone' => $request->phone,
+                'role' => $request->role,
+                'phone' => $request->phone,
+                'country' => $request->country,
+                'state' => $request->state,
+                'agree' => $request->agree,
+                'image' => $filename,
+                'profile_photo_path' => $imgPath
+
+            ]);
+            else if($request->role == 2){
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone' => $request->phone,
+                'role' => $request->role,
+                'phone' => $request->phone,
+                'country' => $request->country,
+                'state' => null,
+                'agree' => null,
+                'image' => $filename,
+                'profile_photo_path' => $imgPath
+
+            ]);
+            }
             $role =$request->role;
             //dd($role);
             if($role == 0){

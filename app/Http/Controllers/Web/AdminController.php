@@ -18,6 +18,14 @@ class AdminController extends Controller
     {
         return view('adminview.addservice');
     }
+    public function viewUserInfo($id){
+        $userinfo = User::find($id);
+        return view('adminview.userinfo' ,compact('userinfo'));
+    }
+    public function viewWorkerInfo($id){
+        $workerinfo = User::find($id);
+        return view('adminview.workerinfo' ,compact('workerinfo'));
+    }
     public function addService(Request $request)
     {
         $servicename = $request->name;

@@ -31,6 +31,8 @@ class User extends Authenticatable
         'phone',
         'image',
         'agree',
+        'country',
+        'state',
         'profile_photo_path'
     ];
 

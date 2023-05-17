@@ -22,7 +22,7 @@
 
                     <p class="description">
                     <h4>Assesment</h4>{{$worker->assesment}}</p>
-                    <a class="link" href="#">
+                    <a class="link" href="{{route('view-worker-info',$worker->id)}}">
 
                         <button class="btn btn-primary">View Worker Info</button>
                     </a>

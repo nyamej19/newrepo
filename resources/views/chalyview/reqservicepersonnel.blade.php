@@ -6,7 +6,7 @@
 
     <div class="d-flex justify-content-between align-items-center">
         <h2 style="margin-left: 30%; margin-top:20px; margin-bottom:20px;">{{$service->Name}} Personnel</h2>
-        1
+        
     </div>
 
     </div>

@@ -24,7 +24,7 @@
 
                     <p class="description">
                     <h4>Assesment</h4>{{$user->assesment}}</p>
-                    <a class="link" href="#">
+                    <a class="link" href="{{route('view-user-info',$user->id)}}">
 
                         <button class="btn btn-primary">View User Info</button>
                     </a>

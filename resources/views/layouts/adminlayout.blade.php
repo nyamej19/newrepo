@@ -80,6 +80,7 @@
                         {{ csrf_field() }}
                         <li><button class="btn btn-primary" type="submit" style="margin-left:10px;margin-top:10px;color:white;">Log Out</button> </li>
                     </form>
+                    
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

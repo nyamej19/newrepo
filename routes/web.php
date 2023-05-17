@@ -77,6 +77,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/user-assesment/{worker_id}', [UserController::class, 'userAssesmentPost'])->name('user-assesment-post');
     Route::get('/worker-assesment/{user_id}', [ServiceController::class, 'workerAssesment'])->name('worker-assesment');
     Route::post('/worker-assesment/{user_id}', [ServiceController::class, 'workerAssesmentPost'])->name('worker-assesment-post');
+    Route::get('/view-userinfo/{id}' ,[AdminController::class,'viewUserInfo'])->name('view-user-info');
+    Route::get('/view-workerinfo/{id}' ,[AdminController::class,'viewWorkerInfo'])->name('view-worker-info');
 });
 Route::get('/blog', [ChalyController::class, 'blog'])->name('blog');
 Route::get('/search-service', [ChalyController::class, 'search'])->name('search');

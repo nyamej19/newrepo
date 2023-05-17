@@ -7,6 +7,7 @@
     <div class="d-flex justify-content-between align-items-center">
 
         <h2 style="margin-left: 40%; margin-top:5%;margin-bottom:20px; text-decoration:underline">All Services</h2>
+        
 
     </div>
     <form action="{{ route('search') }}" method="GET">
@@ -46,7 +47,7 @@
             </div>
         </div>
         @endif
-       
+
 
     </div>
 
