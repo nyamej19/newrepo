@@ -43,8 +43,8 @@ class ServiceController extends Controller
     {
         $user = Auth::user();
         $myreqs =  $user->serviceRequest;
-        //dd($myreqs);
-        return view('serviceview.myservice', compact('myreqs'));
+        $myservices = $user->service;
+        return view('serviceview.myservice', compact('myreqs','myservices'));
     }
     public function reqServicePerson($service_id)
     {

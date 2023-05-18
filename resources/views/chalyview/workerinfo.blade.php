@@ -6,7 +6,7 @@
 <section class="services">
 
     <div class="d-flex justify-content-between align-items-center">
-        <h2 style="margin-left: 30%; margin-top:20px; margin-bottom:20px;">My Assesments</h2>
+        <h2 style="margin-left: 30%; margin-top:20px; margin-bottom:20px;">Worker Assesments</h2>
 
     </div>
 

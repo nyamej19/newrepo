@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-between align-items-center">
 
         <h2 style="margin-left: 40%; margin-top:5%;margin-bottom:20px; text-decoration:underline">All Services</h2>
-        
+
 
     </div>
     <form action="{{ route('search') }}" method="GET">
@@ -28,7 +28,7 @@
             @foreach($services as $service)
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-box icon-box-cyan">
-                    <div class="icon"><i class="bx bx-file"></i></div>
+                    <div class="icon"><img src="./asset/img/repair-tools.png" style="width: 50px;height:50px"></div>
                     <h4 class="title"><a href="#">{{$service->Name}}</a></h4>
                     <p class="description"> {{$service->Desc}}</p>
                     <a href="{{route('req-service-person' ,$service->id)}}">

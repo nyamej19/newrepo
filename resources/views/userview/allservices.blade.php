@@ -16,7 +16,7 @@
             @foreach($userservices as $service)
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
                 <div class="icon-box icon-box-pink">
-                    <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                    <div class="icon"><img src="./asset/img/repair-tools.png" style="width: 50px;height:50px"></div>
                     <h4 class="title"><a href="">{{$service->Name}}</a></h4>
                     <p class="description">{{$service->Desc}}</p>
                     <a href="{{route('req-service-person',$service->id)}}">
