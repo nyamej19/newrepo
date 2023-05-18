@@ -56,7 +56,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <select class="form-select" id="country" name="country">
+                                            <select class="form-select" id="countrySelect" name="country"  onchange="updateStateOptions()">
                                                 <option value="" hidden> chooose country</option>
                                                 <option value="AF">Afghanistan</option>
                                                 <option value="AX">Aland Islands</option>
@@ -298,7 +298,7 @@
                                                 <option value="UA">Ukraine</option>
                                                 <option value="AE">United Arab Emirates</option>
                                                 <option value="GB">United Kingdom</option>
-                                                <option value="US">United States</option>
+                                                <option value="usa">United States</option>
                                                 <option value="UM">United States Minor Outlying Islands</option>
                                                 <option value="UY">Uruguay</option>
                                                 <option value="UZ">Uzbekistan</option>
@@ -316,6 +316,17 @@
                                             <label class="form-label" for="form3Example1c"> Select Country</label>
                                         </div>
                                     </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="form-outline flex-fill mb-0">
+                                    <select id="stateSelect" class="form-select">
+                                        <option value="" hidden>Select State</option>
+
+                                    </select>
+                                    <label class="form-label" for="form3Example3c">Select State</label>
+                                        </div>
+                                    </div>
+
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
@@ -369,3 +380,34 @@
 </section>
 <br>
 <br>
+<script type="text/javascript">
+    const stateOptions = {
+  usa: ["New York", "California", "Texas"], // Example state options for USA
+  canada: ["Ontario", "Quebec", "British Columbia"], // Example state options for Canada
+  // Add more countries and their respective state options here
+};
+
+function updateStateOptions() {
+  const countrySelect = document.getElementById("countrySelect");
+  const stateSelect = document.getElementById("stateSelect");
+  const selectedCountry = countrySelect.value;
+
+  // Clear previous state options
+  stateSelect.innerHTML = "<option value=''>Select State</option>";
+
+  if (selectedCountry) {
+    const states = stateOptions[selectedCountry];
+
+    if (states) {
+      for (const state of states) {
+        const option = document.createElement("option");
+        option.value = state;
+        option.textContent = state;
+        stateSelect.appendChild(option);
+      }
+    }
+  }
+}
+
+
+</script>

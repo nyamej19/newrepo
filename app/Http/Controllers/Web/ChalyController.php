@@ -129,8 +129,8 @@ class ChalyController extends Controller
                 'role' => $request->role,
                 'phone' => $request->phone,
                 'country' => $request->country,
-                'state' => null,
-                'agree' => null,
+                'state' => $request->state,
+                'agree' => $request->agree,
                 'image' => $filename,
                 'profile_photo_path' => $imgPath
 
