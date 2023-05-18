@@ -8,7 +8,12 @@
         <h2 style="margin-left: 30%; margin-top:20px; margin-bottom:20px;">All Services</h2>
 
     </div>
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
 
+@foreach($myservices as $service)
+<button class="btn btn-secondary" style="margin-left: 20%;">You Are Signed Up As A {{$service->Name}}</button>
+@endforeach
+</div>
     </div>
     <div class="container">
 

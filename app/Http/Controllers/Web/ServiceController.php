@@ -110,7 +110,9 @@ class ServiceController extends Controller
     {
         $user = Auth::user();
         $myreqs = $user->serviceRequest;
-        return view('serviceview.myservice', compact('myreqs'));
+       $myservices = $user->service;
+
+        return view('serviceview.myservice', compact('myreqs' ,'myservices'));
     }
     public function startServiceWorker(Request $request, $user_id)
     {
