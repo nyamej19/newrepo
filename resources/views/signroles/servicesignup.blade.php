@@ -141,7 +141,7 @@
                                                 <option value="GM">Gambia</option>
                                                 <option value="GE">Georgia</option>
                                                 <option value="DE">Germany</option>
-                                                <option value="GH">Ghana</option>
+                                                <option value="ghana">Ghana</option>
                                                 <option value="GI">Gibraltar</option>
                                                 <option value="GR">Greece</option>
                                                 <option value="GL">Greenland</option>
@@ -383,7 +383,8 @@
 <script type="text/javascript">
     const stateOptions = {
   usa: ["New York", "California", "Texas"], // Example state options for USA
-  canada: ["Ontario", "Quebec", "British Columbia"], // Example state options for Canada
+  canada: ["Ontario", "Quebec", "British Columbia"],
+  ghana:["Ashanti","Central" ,"Upper-West" ,"Greater-Accra"], // Example state options for Canada
   // Add more countries and their respective state options here
 };
 
