@@ -12,7 +12,7 @@
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up As A Worker Today</p>
 
-                                <form action="{{route('signup-form')}}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
+                                <form action="{{route('signup-service-post')}}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
                                     {{ csrf_field() }}
 
                                     <div>
@@ -30,13 +30,7 @@
                                             <label class="form-label" for="form3Example1c">Your Name</label>
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-row align-items-center mb-4">
-
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" name="role" value="1" class="form-control" hidden readonly />
-
-                                        </div>
-                                    </div>
+                                    
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -335,13 +329,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example4cd" value="1" name="role" class="form-control" readonly hidden />
 
-                                        </div>
-                                    </div>
 
 
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -404,7 +392,7 @@ function updateStateOptions() {
         const option = document.createElement("option");
         option.value = state;
         option.textContent = state;
-        
+
         stateSelect.appendChild(option);
       }
     }

@@ -96,7 +96,9 @@ Route::get('/services' ,[ChalyController::class, 'allServices'])->name('services
 Route::get('/partners' ,[ChalyController::class, 'partners'])->name('partners');
 Route::get('/about-us' ,[ChalyController::class, 'aboutUs'])->name('about-us');
 Route::get('signup-service',[ChalyController::class, 'signUpService'])->name('signup-service');
+Route::post('signup-service',[ChalyController::class, 'signUpServicePost'])->name('signup-service-post');
 Route::get('signup-user',[ChalyController::class, 'signUpUser'])->name('signup-user');
+Route::post('signup-user-post',[ChalyController::class, 'signUpUserPost'])->name('signup-user-post');
 Route::get('/signup-admin',[ChalyController::class, 'signUpAdmin'])->name('signup-admin');
 Route::post('signup-form',[ChalyController::class, 'signUpForm'])->name('signup-form');
 Route::get('contact-us',[ChalyController::class, 'contactUs'])->name('contact-us');

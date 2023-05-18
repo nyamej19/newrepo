@@ -65,6 +65,110 @@ class ChalyController extends Controller
         //dd($request->all());
         return redirect()->back()->with('message', 'Message sent successfully. Will hear from us soon!');
     }
+    public function signUpUserPost(Request $request)
+    {
+       // dd($request->all());
+        $validateUser = Validator::make($request->all(),
+            [
+                'name'=>'required',
+                'password'=>'required',
+                'email'=>'required|email|unique:users,email',
+                'phone'=>'required',
+                'role'=>'required',
+                'phone'=>'required'
+
+            ]);
+            if ($request->hasFile('image')) {
+                $img =$request->file('image');
+                $filename = 'img'.time().'.'.$img->getClientOriginalExtension();
+
+                $imgPath = public_path('app\public');
+                $img->move($imgPath ,$filename);
+            }
+            //   return $img;
+
+
+               // dd($request->all());
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone' => $request->phone,
+                'role' => "2",
+                'phone' => $request->phone,
+                'country' => $request->country,
+                'state' => $request->state,
+                'agree' => $request->agree,
+                'image' => $filename,
+                'profile_photo_path' => $imgPath
+
+            ]);
+
+            $role =2;
+            //dd($role);
+            if($role == 0){
+                return redirect()->route('admin-page');
+            }
+            elseif($role == 1 ){
+                return redirect()->route('service-page');
+            }
+            elseif($role == 2){
+               return redirect()->route('user-page');
+            }
+
+    }
+    public function signUpServicePost(Request $request)
+    {
+       // dd($request->all());
+        $validateUser = Validator::make($request->all(),
+            [
+                'name'=>'required',
+                'password'=>'required',
+                'email'=>'required|email|unique:users,email',
+                'phone'=>'required',
+                'role'=>'required',
+                'phone'=>'required'
+
+            ]);
+            if ($request->hasFile('image')) {
+                $img =$request->file('image');
+                $filename = 'img'.time().'.'.$img->getClientOriginalExtension();
+
+                $imgPath = public_path('app\public');
+                $img->move($imgPath ,$filename);
+            }
+            //   return $img;
+
+
+               // dd($request->all());
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phone' => $request->phone,
+                'role' => "1",
+                'phone' => $request->phone,
+                'country' => $request->country,
+                'state' => $request->state,
+                'agree' => $request->agree,
+                'image' => $filename,
+                'profile_photo_path' => $imgPath
+
+            ]);
+
+            $role =1;
+            //dd($role);
+            if($role == 0){
+                return redirect()->route('admin-page');
+            }
+            elseif($role == 1 ){
+                return redirect()->route('service-page');
+            }
+            elseif($role == 2){
+               return redirect()->route('user-page');
+            }
+
+    }
 
     public function signUpForm(Request $request)
     {
@@ -128,7 +232,7 @@ class ChalyController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'phone' => $request->phone,
-                'role' => $request->role,
+                'role' => "0",
                 'phone' => $request->phone,
                 'country' => $request->country,
                 'state' => $request->state,
@@ -138,7 +242,7 @@ class ChalyController extends Controller
 
             ]);
             }
-            $role =$request->role;
+            $role =0;
             //dd($role);
             if($role == 0){
                 return redirect()->route('admin-page');

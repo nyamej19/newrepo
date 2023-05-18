@@ -30,14 +30,7 @@
                                             <label class="form-label" for="form3Example1c">Your Name</label>
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-row align-items-center mb-4">
-
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" name="role" value="1" class="form-control" hidden readonly />
-
-                                        </div>
-                                    </div>
-
+                                    
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">

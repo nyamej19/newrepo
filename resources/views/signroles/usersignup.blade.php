@@ -12,7 +12,7 @@
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up As A Home Owner</p>
 
-                                <form action="{{route('signup-form')}}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
+                                <form action="{{route('signup-user-post')}}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
                                     {{ csrf_field() }}
 
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -318,13 +318,7 @@
                                             <label class="form-label" for="form3Example1c">Phone</label>
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-row align-items-center mb-4">
 
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" name="role" value="2" class="form-control" hidden readonly />
-
-                                        </div>
-                                    </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
