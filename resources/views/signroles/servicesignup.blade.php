@@ -319,7 +319,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
 
                                         <div class="form-outline flex-fill mb-0">
-                                    <select id="stateSelect" class="form-select">
+                                    <select id="stateSelect" class="form-select" name="state">
                                         <option value="" hidden>Select State</option>
 
                                     </select>
@@ -394,7 +394,7 @@ function updateStateOptions() {
   const selectedCountry = countrySelect.value;
 
   // Clear previous state options
-  stateSelect.innerHTML = "<option value=''>Select State</option>";
+  stateSelect.innerHTML = "<option value='' >Select State</option>";
 
   if (selectedCountry) {
     const states = stateOptions[selectedCountry];
@@ -404,6 +404,7 @@ function updateStateOptions() {
         const option = document.createElement("option");
         option.value = state;
         option.textContent = state;
+        
         stateSelect.appendChild(option);
       }
     }

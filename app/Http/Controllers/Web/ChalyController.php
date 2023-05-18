@@ -105,7 +105,8 @@ class ChalyController extends Controller
 
             ]);
             }
-            else if($request->role == 1)
+            else if($request->role == 1){
+               // dd($request->all());
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -120,6 +121,7 @@ class ChalyController extends Controller
                 'profile_photo_path' => $imgPath
 
             ]);
+        }
             else if($request->role == 2){
             $user = User::create([
                 'name' => $request->name,
