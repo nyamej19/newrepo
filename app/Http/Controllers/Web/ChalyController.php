@@ -234,7 +234,7 @@ class ChalyController extends Controller
                 'state'=>'admin',
                 'agree' => $request->agree,
                 'image' => $filename,
-                'profile_photo_path' => $imgPath
+                'profile_photo_path' => null
 
             ]);
 
