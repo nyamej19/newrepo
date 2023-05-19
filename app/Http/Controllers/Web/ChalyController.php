@@ -78,6 +78,14 @@ class ChalyController extends Controller
                 'phone'=>'required'
 
             ]);
+            $emailcheck = User::where('email',$request->email)->get();
+            if($emailcheck != null){
+                return redirect()->back()->with('message' ,'email exists already!');
+            }
+            if($request->password != $request->confirm_password){
+                return redirect()->back()->with('password' ,'passwords do not match!');
+            }
+
             if ($request->hasFile('image')) {
                 $img =$request->file('image');
                 $filename = 'img'.time().'.'.$img->getClientOriginalExtension();
@@ -130,6 +138,14 @@ class ChalyController extends Controller
                 'phone'=>'required'
 
             ]);
+            $emailcheck = User::where('email',$request->email)->get();
+            if($request->password != $request->confirm_password){
+                return redirect()->back()->with('password' ,'passwords do not match!');
+            }
+            if($emailcheck != null){
+                return redirect()->back()->with('message' ,'email exists already!');
+            }
+
             if ($request->hasFile('image')) {
                 $img =$request->file('image');
                 $filename = 'img'.time().'.'.$img->getClientOriginalExtension();
@@ -183,6 +199,13 @@ class ChalyController extends Controller
                 'phone'=>'required'
 
             ]);
+            $emailcheck = User::where('email',$request->email)->get();
+            if($request->password != $request->confirm_password){
+                return redirect()->back()->with('password' ,'passwords do not match!');
+            }
+            if($emailcheck != null){
+                return redirect()->back()->with('message' ,'email exists already!');
+            }
             if ($request->hasFile('image')) {
                 $img =$request->file('image');
                 $filename = 'img'.time().'.'.$img->getClientOriginalExtension();
@@ -192,7 +215,7 @@ class ChalyController extends Controller
             }
             //   return $img;
 
-            if($request->role == 0){
+
 
             $user = User::create([
                 'name' => $request->name,
@@ -208,40 +231,9 @@ class ChalyController extends Controller
                 'profile_photo_path' => $imgPath
 
             ]);
-            }
-            else if($request->role == 1){
-               // dd($request->all());
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'phone' => $request->phone,
-                'role' => $request->role,
-                'phone' => $request->phone,
-                'country' => $request->country,
-                'state' => $request->state,
-                'agree' => $request->agree,
-                'image' => $filename,
-                'profile_photo_path' => $imgPath
 
-            ]);
-        }
-            else if($request->role == 2){
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'phone' => $request->phone,
-                'role' => "0",
-                'phone' => $request->phone,
-                'country' => $request->country,
-                'state' => $request->state,
-                'agree' => $request->agree,
-                'image' => $filename,
-                'profile_photo_path' => $imgPath
 
-            ]);
-            }
+            
             $role =0;
             //dd($role);
             if($role == 0){

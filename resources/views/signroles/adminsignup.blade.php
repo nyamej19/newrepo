@@ -11,7 +11,16 @@
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Admin Room</p>
-
+                                @if(session()->has('message'))
+                                    <div class="alert alert-danger">
+                                        {{ session()->get('message') }}
+                                    </div>
+                                @endif
+                                @if(session()->has('password'))
+                                    <div class="alert alert-danger">
+                                        {{ session()->get('password') }}
+                                    </div>
+                                @endif
                                 <form action="{{route('signup-form')}}" method="post" class="mx-1 mx-md-4" enctype="multipart/form-data">
                                     {{ csrf_field() }}
 
@@ -30,7 +39,7 @@
                                             <label class="form-label" for="form3Example1c">Your Name</label>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">

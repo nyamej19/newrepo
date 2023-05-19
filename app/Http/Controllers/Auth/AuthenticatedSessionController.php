@@ -27,12 +27,20 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-       // dd($request->all());
+       $e =$request->email;
+      $emailcheck = User::where('email',$e)->get();
+     // dd($emailcheck);
+if($emailcheck == null){
+    return redirect()->back()->with('message','email does not exist in our system');
+}
         $request->authenticate();
 
         $request->session()->regenerate();
         // $user  = User::find($request->email);
        $user = User::where('email',$request->email) -> first();
+       if($user == null){
+        return redirect()->back()->with('message','user does not exist!');
+       }
         $myrole =$user->role;
         if($myrole== 0){
             return redirect()->route('admin-page');
