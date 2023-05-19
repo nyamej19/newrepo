@@ -199,14 +199,15 @@ class ChalyController extends Controller
                 'phone'=>'required'
 
             ]);
-            $emailcheck = User::where('email',$request->email)->get();
-           // dd($request->password . $request->confirm_password);
+            $emailcheck = User::where('email',$request->email)->get()->first();
+          // dd($emailcheck);
+          if($emailcheck != null){
+            return redirect()->back()->with('message' ,'email exists already!');
+        }
             if($request->password != $request->confirm_password){
                 return redirect()->back()->with('password' ,'passwords do not match!');
             }
-            if($emailcheck != null){
-                return redirect()->back()->with('message' ,'email exists already!');
-            }
+
             if ($request->hasFile('image')) {
                 $img =$request->file('image');
                 $filename = 'img'.time().'.'.$img->getClientOriginalExtension();
