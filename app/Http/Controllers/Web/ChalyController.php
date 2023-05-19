@@ -200,6 +200,7 @@ class ChalyController extends Controller
 
             ]);
             $emailcheck = User::where('email',$request->email)->get();
+           // dd($request->password . $request->confirm_password);
             if($request->password != $request->confirm_password){
                 return redirect()->back()->with('password' ,'passwords do not match!');
             }
@@ -233,7 +234,7 @@ class ChalyController extends Controller
             ]);
 
 
-            
+
             $role =0;
             //dd($role);
             if($role == 0){
