@@ -18,7 +18,11 @@
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-box icon-box-cyan">
 
-                    <div class=><img src="{{ asset('/app/public/'.$worker->image) }}" style="width: 50px; height:50px;border-radius:50%"></div>
+                <div class="col-lg-6 video-box">
+                <img src="{{ asset('/app/public/'.$worker->image) }}" class="img-fluid" alt="" style="border-radius:50%;margin-left:40px;height:80px;width: 80px;">
+                <!-- {{ asset('audio/crow.ogg') }} -->
+                <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a> -->
+            </div>
                     <p class="description"><a href="#">Name :{{$worker->name}} </a></p>
 
                     <p class="description">Contact: {{$worker->phone}}</p>
