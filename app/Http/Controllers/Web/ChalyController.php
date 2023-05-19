@@ -78,14 +78,14 @@ class ChalyController extends Controller
                 'phone'=>'required'
 
             ]);
-            $emailcheck = User::where('email',$request->email)->get();
+            $emailcheck = User::where('email',$request->email)->get()->first();;
             if($emailcheck != null){
                 return redirect()->back()->with('message' ,'email exists already!');
             }
             if($request->password != $request->confirm_password){
                 return redirect()->back()->with('password' ,'passwords do not match!');
             }
-
+            $filename = "";
             if ($request->hasFile('image')) {
                 $img =$request->file('image');
                 $filename = 'img'.time().'.'.$img->getClientOriginalExtension();
@@ -93,7 +93,7 @@ class ChalyController extends Controller
                 $imgPath = public_path('app\public');
                 $img->move($imgPath ,$filename);
             }
-            //   return $img;
+            dd($filename); 
 
 
                // dd($request->all());
@@ -138,7 +138,7 @@ class ChalyController extends Controller
                 'phone'=>'required'
 
             ]);
-            $emailcheck = User::where('email',$request->email)->get();
+            $emailcheck = User::where('email',$request->email)->get()->first();;
             if($request->password != $request->confirm_password){
                 return redirect()->back()->with('password' ,'passwords do not match!');
             }
