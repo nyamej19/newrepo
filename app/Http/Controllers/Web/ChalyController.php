@@ -93,7 +93,7 @@ class ChalyController extends Controller
                 $imgPath = public_path('app\public');
                 $img->move($imgPath ,$filename);
             }
-            dd($filename); 
+            dd($filename);
 
 
                // dd($request->all());
@@ -204,10 +204,13 @@ class ChalyController extends Controller
           if($emailcheck != null){
             return redirect()->back()->with('message' ,'email exists already!');
         }
+      // dd($request->password);
+        //dd($request->confirm_password);
             if($request->password != $request->confirm_password){
                 return redirect()->back()->with('password' ,'passwords do not match!');
             }
 
+            $filename ="";
             if ($request->hasFile('image')) {
                 $img =$request->file('image');
                 $filename = 'img'.time().'.'.$img->getClientOriginalExtension();
@@ -215,6 +218,7 @@ class ChalyController extends Controller
                 $imgPath = public_path('app\public');
                 $img->move($imgPath ,$filename);
             }
+          //  dd($filename);
             //   return $img;
 
 
