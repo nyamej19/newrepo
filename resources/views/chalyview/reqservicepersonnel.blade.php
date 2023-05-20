@@ -3,6 +3,27 @@
 
 
 <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+    <!-- <br> -->
+<div class="footer-newsletter" style="margin-top: 40px;">
+                <div class="container">
+                    <div class="row" >
+
+                        <div class="col-lg-6" style="margin-left:26%">
+
+                        <form action="{{ route('search') }}" method="GET">
+                                <select style="border-radius: 8px; width:44% ;border-color:blue;" name="filter">
+                                    <option value="" hidden>Filter Service Personnel By</option>
+                                    <option value="country" >Country</option>
+                                    <!-- <option value="country" >Ghana</option>
+                                    <option value="country" >Ghana</option> -->
+
+                                </select>
+                                <button class="btn btn-primary" type="submit" style="margin-left: 5px; padding:3px; width:100px">Filter</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     <div class="d-flex justify-content-between align-items-center">
         <h2 style="margin-left: 30%; margin-top:20px; margin-bottom:20px;">{{$service->Name}} Personnel</h2>

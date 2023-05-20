@@ -67,7 +67,7 @@
 <div class="slider">
     <div class="slide">
     <div class="carousel-item active">
-            
+
         </div>
     </div>
     <div class="slide"></div>
@@ -77,6 +77,20 @@
 </div>
 
 <section class="services">
+<div class="footer-newsletter">
+                <div class="container">
+                    <div class="row" >
+
+                        <div class="col-lg-6" style="margin-left:40%">
+
+                        <form action="{{ route('search') }}" method="GET">
+                                <input type="text" style="border-radius: 8px; width:40% ;border-color:blue;"  placeholder="Search service..." name="service">
+                                <button class="btn btn-primary" type="submit" style="margin-left: 5px; padding:3px">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
       <div class="container">
 
         <div class="row">
