@@ -40,7 +40,7 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="member-img">
-                <img src="{{ asset('/app/public/'.$worker->image) }}" class="img-fluid" alt="" style="border: radius 50%; height: 50%;">
+                <img src="{{ asset('/app/public/team-5.jpg') }}" class="img-fluid" alt="" style="border: radius 50%; height: 50%;">
                 <!-- <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -48,6 +48,7 @@
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div> -->
               </div>
+
               <div class="member-info">
                 <h4>Name : {{$worker->name}}</h4>
                 <span><a href="{{route('worker-info' ,$worker->id)}}" class="btn btn-secondary">View Worker Profile And Reviews</a></span>
