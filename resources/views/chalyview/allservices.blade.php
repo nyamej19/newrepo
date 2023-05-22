@@ -3,83 +3,252 @@
 
 
 <style>
-    .slider {
- margin-top:20px ;
- overflow: hidden;
- width: 100vw;
- height: 100vh;
- position: relative;
+    #ero {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  position: relative;
 }
 
-.slider .slide {
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background-size: cover;
- background-position: center;
- animation: slider 12.5s infinite;
+#ero::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 130%;
+  height: 95%;
+  background: linear-gradient(to right, rgba(30, 67, 86, 0.8), rgba(30, 67, 86, 0.6)), url("../img/repair-tools.png") center top no-repeat;
+  z-index: 0;
+  border-radius: 0 0 50% 50%;
+  transform: translateX(-50%) rotate(0deg);
 }
 
-.slider .slide:nth-child(1) {
-   background-image: url('https://img.freepik.com/premium-photo/cleaning-kit-detergents-napkins-sponges-gloves-blue-background-concept-home-cleaning-cleaning-company-services_721474-102.jpg?w=2000');
-   animation-delay: 0s;
+#ero::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 130%;
+  height: 96%;
+  background: #68A4C4;
+  opacity: 0.3;
+  z-index: 0;
+  border-radius: 0 0 50% 50%;
+  transform: translateX(-50%) translateY(18px) rotate(2deg);
 }
 
-.slider .slide:nth-child(2) {
-   background-image: url('https://thumbs.dreamstime.com/b/mowing-cutting-long-grass-lawn-mower-gardening-concept-background-182546301.jpg');
-   animation-delay: -2.5s;
+#ero .carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
-.slider .slide:nth-child(3) {
-   background-image: url('https://nzacksisecurity.co.za/wp-content/uploads/2019/06/Security-Services-Cape-Town-Nzacksi-Security-Services.jpg');
-   animation-delay: -5s;
+#ero h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 48px;
+  font-weight: 700;
 }
 
-.slider .slide:nth-child(4) {
-   background-image: url('https://previews.123rf.com/images/tatom/tatom2012/tatom201200048/160989736-house-cleaning-product-on-blue-table-background-housekeeping-and-home-service-concept.jpg');
-   animation-delay: -7.5s;
+#ero p {
+  width: 80%;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  margin: 0 auto 30px auto;
+  color: #fff;
 }
 
-.slider .slide:nth-child(5) {
-   background-image: url('https://thumbs.dreamstime.com/b/home-improvement-background-plumbing-tools-equipment-home-improvement-background-plumbing-tools-equipment-187178705.jpg');
-   animation-delay: -10s;
+#ero .carousel-control-prev,
+#ero .carousel-control-next {
+  width: 10%;
 }
 
-@keyframes slider {
- 0%, 16%, 100% {
-   transform: translateX(0);
-   animation-timing-function: ease;
- }
- 20% {
-   transform: translateX(-100%);
-   animation-timing-function: step-end;
- }
- 96% {
-   transform: translateX(100%);
-   animation-timing-function: ease;
- }
+#ero .carousel-control-next-icon,
+#ero .carousel-control-prev-icon {
+  background: none;
+  font-size: 48px;
+  line-height: 1;
+  width: auto;
+  height: auto;
+}
+
+#ero .btn-get-started {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px;
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #68A4C4;
+}
+
+#ero .btn-get-started:hover {
+  background: #68A4C4;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+  #ero p {
+    width: 60%;
+  }
+
+  #ero .carousel-control-prev,
+  #ero .carousel-control-next {
+    width: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  #ero::after {
+    width: 180%;
+    height: 95%;
+    border-radius: 0 0 50% 50%;
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  #ero::before {
+    top: 0;
+    width: 180%;
+    height: 94%;
+    border-radius: 0 0 50% 50%;
+    transform: translateX(-50%) translateY(20px) rotate(4deg);
+  }
+}
+
+@media (max-width: 575px) {
+  #ero h2 {
+    font-size: 30px;
+  }
+
+  #ero::after {
+    left: 40%;
+    top: 0;
+    width: 200%;
+    height: 95%;
+    border-radius: 0 0 50% 50%;
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  #ero::before {
+    left: 50%;
+    top: 0;
+    width: 200%;
+    height: 94%;
+    border-radius: 0 0 50% 50%;
+    transform: translateX(-50%) translateY(20px) rotate(4deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Hero No Slider Section
+--------------------------------------------------------------*/
+#ero-no-slider {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+#ero-no-slider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(30, 67, 86, 0.8), rgba(30, 67, 86, 0.6)), url("../img/repair-tools.png") center top no-repeat;
+}
+
+#ero-no-slider h2 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+#ero-no-slider p {
+  color: #fff;
+}
+
+#ero-no-slider .btn-get-started {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px;
+  color: #fff;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #68A4C4;
+}
+
+#ero-no-slider .btn-get-started:hover {
+  background: #68A4C4;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 575px) {
+  #ero-no-slider h2 {
+    font-size: 30px;
+  }
 }
 
 </style>
 
+<section id="ero" class="d-flex justify-cntent-center align-items-center">
+    <div id="heroCarousel" class="container carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
-<div class="slider">
-    <div class="slide">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="carousel-container">
+                <h2 class="animate__animated animate__fadeInDown" style="margin-top: 45px;">Welcome to <span>Our Services</span></h2>
+                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="carousel-container">
+                <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor kk</h2>
+                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+        </a>
 
     </div>
-    <div class="slide" >
-
-    </div>
-    <div class="slide">  </div>
-    <div class="slide">
-        <h1  style="text-decoration: underline; color:antiquewhite;margin-top :15%; font-weight:10%; margin-left:28%; justify-content:center;">Welcome To Our Services!</h1>
-
-
-    </div>
-    <div class="slide"></div>
-</div>
+</section>
 
 <section class="services">
 <div class="footer-newsletter">
