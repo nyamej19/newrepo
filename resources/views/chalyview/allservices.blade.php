@@ -238,7 +238,7 @@
         </div>
 
         <!-- Slide 3 -->
-        
+
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
         </a>
@@ -259,7 +259,7 @@
 
                         <form action="{{ route('search') }}" method="GET">
                                 <input type="text" style="border-radius: 8px; width:60% ;border-color:blue;"  placeholder="Search service..." name="service">
-                                <button class="btn btn-primary" type="submit" style="margin-left: 5px; padding:3px">Search</button>
+                                <button class="btn btn-primary" type="submit" style=" padding:3px">Search</button>
                             </form>
                         </div>
                     </div>
