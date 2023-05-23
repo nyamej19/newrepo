@@ -213,7 +213,18 @@
     font-size: 30px;
   }
 }
+@media screen {
+.sBar{
+  display: flex;
+  margin-left: 0;
+  /* width: 0%; */
+}
+}
+.sBar{
+  display: flex;
+  margin-left: 10%;
 
+}
 </style>
 
 <section id="ero" class="d-flex justify-cntent-center align-items-center">
@@ -258,8 +269,10 @@
                         <div class="col-lg-6" >
 
                         <form action="{{ route('search') }}" method="GET">
-                                <input type="text" style="border-radius: 8px; width:60% ;border-color:blue;"  placeholder="Search service..." name="service">
-                                <button class="btn btn-primary" type="submit" style=" padding:3px">Search</button>
+                          <div  class="sBar">
+                                <input type="text" style="border-radius: 8px; border-color:blue; width:100%;margin-left:60px;" class="form-control" placeholder="Search service..." name="service">
+                                <button class="btn btn-primary" type="submit" style=" padding:3px;margin-left:3px">Search</button>
+                                </div>
                             </form>
                         </div>
                     </div>
