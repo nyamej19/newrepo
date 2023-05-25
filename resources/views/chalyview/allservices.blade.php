@@ -266,11 +266,11 @@
                 <div class="container">
                     <div class="row" >
 
-                        <div>
+                        <div style="">
 
                         <form action="{{ route('search') }}" method="GET">
                           <div  class="sBar">
-                                <input type="text" style="border-radius: 8px; border-color:blue; width:100%;margin-left:60px;" class="form-control" placeholder="Search service..." name="service">
+                                <input type="text" style="border-radius: 8px; border-color:blue; width:100%;margin-left:-5px;" class="form-control" placeholder="Search service..." name="service">
                                 <button class="btn btn-primary" type="submit" style=" padding:3px;margin-left:3px">Search</button>
                                 </div>
                             </form>
