@@ -262,11 +262,11 @@
 </section>
 
 <section class="services">
-<div class="footer-newsletter">
+<div class="footer-newsletter" >
                 <div class="container">
                     <div class="row" >
 
-                        <div class="col-lg-6" >
+                        <div>
 
                         <form action="{{ route('search') }}" method="GET">
                           <div  class="sBar">
