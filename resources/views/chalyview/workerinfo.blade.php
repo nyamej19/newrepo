@@ -99,6 +99,7 @@
                                 <li><a href="#">Name:John Doe </a></li>
                                 <li><a href="#">Email: johndoe@mail.com</a></li>
                                 <li><a href="#">Phone: +233501459677</a></li>
+                                <li><a href="#">Ratings: 4.7 <i class="fa-solid fa-star"></i></a></li>
                                 <!-- <li><a href="#">CyberSecurity<span>(8)</span></a></li> -->
                                 <!-- <li><a href="#">Database Systems<span>(14)</span></a></li> -->
                             </ul>
